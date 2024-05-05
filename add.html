@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Add Option Example</title>
+</head>
+<body>
+
+<select id="dropdown">
+    <option value="option1">Option 1</option>
+    <option value="option2">Option 2</option>
+</select>
+
+<input type="text" id="newOption" placeholder="New Option">
+<button onclick="addOption()">Add Option</button>
+
+<script>
+function addOption() {
+    var dropdown = document.getElementById("dropdown");
+    var newOptionValue = document.getElementById("newOption").value;
+    
+    if (newOptionValue.trim() !== "") {
+        var option = document.createElement("option");
+        option.text = newOptionValue;
+        option.value = newOptionValue;
+        dropdown.add(option);
+        document.getElementById("newOption").value = ""; // Clear the input field
+    } else {
+        alert("Please enter a valid option.");
+    }
+}
+</script>
+<select id="dropdown">
+    <option value="1">Option 1</option>
+    <option value="2">Option 2</option>
+    <option value="3">Option 3</option>
+    <option value="4">Option 4</option>
+</select>
+
+<button onclick="removeOption()">Remove Option 3</button>
+
+<script>
+    function removeOption(valueToRemove) {
+        var select = document.getElementById("mySelect");
+        var optionToRemove = select.querySelector('option[value="' + valueToRemove + '"]');
+        
+        if (optionToRemove) {
+            select.removeChild(optionToRemove);
+            console.log("Option with value " + valueToRemove + " removed successfully");
+        } else {
+            console.log("Option with value " + valueToRemove + " not found");
+        }
+    }
+    </script>
+</body>
+</html>
